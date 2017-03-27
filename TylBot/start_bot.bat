@@ -1,2 +1,2 @@
-nodemon bot.js
+nodemon --harmony bot.js
 PAUSE
