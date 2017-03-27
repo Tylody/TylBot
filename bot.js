@@ -44,7 +44,7 @@ client.on('message', message => {
 client.on('message', message => {
   var args = message.content.split(/[ ]+/);
   if(commandIs("say", message)){
-      if (hasRole(message.member, "Tyrant Hoang")) {
+      if (hasRole(message.member, "Tyrant Hoang") || hasRole(message.member, "admin")) {
           if (args.length === 1) {
               message.channel.sendMessage('No argument was defined. Usage: ``>say [message to say]``');
           } else {
@@ -55,7 +55,7 @@ client.on('message', message => {
       }
   }
   if(commandIs("purge", message)){
-      if(hasRole(message.member, "Moderator") || hasRole(message.member, "Tyrant Hoang")){
+      if(hasRole(message.member, "Moderator") || hasRole(message.member, "Tyrant Hoang") || hasRole(message.member, "admin")){
           if(args.length >= 3){
               message.channel.sendMessage('Too many arguments were defined. Usage: ``>purge [number of messages to delete]');
           } else {
