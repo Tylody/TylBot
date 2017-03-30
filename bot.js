@@ -1,7 +1,7 @@
 const commando  = require('discord.js-commando');
 const client = new commando.Client({
   owner: 'Tylody#1781',
-  commandPrefix: '>'
+  commandPrefix: '<'
 });
 
 client.registry.registerGroup('random', 'Random');
@@ -27,11 +27,15 @@ function hasRole(mem, role) {
 }
 
 client.on('ready', () => {
-    console.log('Tylbot is ONLINE');
+    console.log('Tylbot EXPERIMENTAL is ONLINE');
+});
+
+client.on('ready', () =>{
+  client.user.setGame('very unstably.')
 });
 
 client.on('message', message => {
-    var deletewords = [">say "];
+    var deletewords = ['>say ', '>roast '];
     var i = 0
     while (i < deletewords.length) {
         if (message.content.toLowerCase().includes(deletewords[i])) {
@@ -73,4 +77,4 @@ client.on('message', message => {
   }
 });
 
-client.login('Mjg5OTY0NTYyMzQwNTExNzQ2.C7YPeQ.RyujolFFXjuukXIigMbRx1lzIpM');
+client.login('Mjk1OTUyMDE4NDAzNDkxODUx.C7rKVA.2_V6mQrzHGUy_he5JlqvRk_gewQ');
