@@ -35,7 +35,7 @@ client.on('ready', () =>{
 });
 
 client.on('message', message => {
-    var deletewords = ['>say ', '>roast '];
+    var deletewords = ['>say ', '>roast ', '>8ball ','>arrest '];
     var i = 0
     while (i < deletewords.length) {
         if (message.content.toLowerCase().includes(deletewords[i])) {
