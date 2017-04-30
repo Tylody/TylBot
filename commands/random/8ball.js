@@ -6,7 +6,7 @@ class AteBallCommand extends commando.Command {
       name: '8ball',
       group: 'random',
       memberName: '8ball',
-      description: 'Ask the magic 8 ball a question. Usage: ``>8ball [question]``',
+      description: 'Ask the magic 8 ball a question. Usage: ``>8ball [question]``',
     });
   }
 

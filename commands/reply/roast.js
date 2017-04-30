@@ -6,7 +6,7 @@ class RoastCommand extends commando.Command {
       name: 'roast',
       group: 'reply',
       memberName: 'roast',
-      description: 'Roast a user of your choice. Usage: ``>roast [@Roastee]``',
+      description: 'Roast a user of your choice. Usage: ``>roast [@Roastee]``',
     });
   }
 
@@ -14,7 +14,7 @@ class RoastCommand extends commando.Command {
     var args = message.content.split(/[ ]+/);
     var random = Math.floor(Math.random() * 11) + 1;
     if(args.length === 1) {
-      message.channel.sendMessage('Not enough arguments defined. Usage: ``>roast [@Roastee].``')
+      message.channel.sendMessage('Not enough arguments defined. Usage: ``>roast [@Roastee].``')
     } else {
       if(random === 1) {
         message.channel.sendMessage(message.author + ' says ' + args.join("").substring(6) + ' is so stupid, he uses commands in #general')
@@ -31,7 +31,7 @@ class RoastCommand extends commando.Command {
       } if(random === 7) {
         message.channel.sendMessage(message.author + ' says ' + args.join("").substring(6) + ' is a coward who will never be the man his mother is.')
       } if(random === 8) {
-        message.channel.sendMessage(message.author + ' says ' + args.join("").substring(6) + ' is so worthless, if they were on life support, ' + message.author + 'would be happy to unplug it to charge their phone.')
+        message.channel.sendMessage(message.author + ' says ' + args.join("").substring(6) + ' is so worthless, if they were on life support, ' + message.author + ' would be happy to unplug it to charge their phone.')
       } if(random === 9) {
         message.channel.sendMessage(message.author + ' says ' + args.join("").substring(6) + ' deserves all of the chocolate chip cookies that turned out to be raisins that they got and will get.')
       } if(random === 10) {

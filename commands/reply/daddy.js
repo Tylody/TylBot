@@ -11,7 +11,7 @@ class DaddyCommand extends commando.Command {
   }
 
   async run(message, msg) {
-    message.channel.sendMessage('``My daddies are Tylody#1781 (he coded me!) and GusIsCello#0247 (he\'s hosting me!).``');
+    message.channel.sendMessage('``My daddies are Tylody#1781 (he coded me!), theelkyk#3717 (he helped Tylody!) and GusIsCello#0247 (he\'s hosting me!).``');
   }
 };
 
