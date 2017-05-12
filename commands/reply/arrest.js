@@ -6,16 +6,16 @@ class ArrestCommand extends commando.Command {
       name: 'arrest',
       group: 'reply',
       memberName: 'reply',
-      description: 'Arrest someone! Usage: ``>arrest [@Arrestee]|[reason]``',
+      description: 'Arrest someone! Usage: ``tyl!arrest [@Arrestee]|[reason]``',
     });
   }
 
-  async run(message, args) {
-    var args = message.content.split(/[|]+/);
+  async run(msg, args) {
+    var args = msg.content.split(/[|]+/);
     if(args.length === 1) {
-      message.channel.sendMessage('You have defined too many arguments. Usage: ``>arrest [@Arrestee]|[reason]``');
+      msg.say('You have defined too many arguments. Usage: ``tyl!arrest [@Arrestee]|[reason]``');
     } else {
-      message.channel.sendMessage('Hands up ' + args[0].substring(8) + ', ' + message.author + ' is arresting you for ' + args[1]);
+      msg.say('Hands up ' + args[0].substring(11) + ', ' + msg.author + ' is arresting you for ' + args[1]);
     }
   }
 };

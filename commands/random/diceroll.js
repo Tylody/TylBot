@@ -6,17 +6,19 @@ class DiceRollCommand extends commando.Command {
         name: 'roll',
         group: 'random',
         memberName: 'roll',
-        description: 'Roll a dice. Usage: >roll [max number]',
+        description: 'Roll a dice. Usage: tyl!roll [max number] [opt: # of dice to roll]',
     });
   }
 
-  async run(message, args) {
-    var args = message.content.split(/[ ]+/);
+  async run(msg, args) {
+    var args = msg.content.split(/[ ]+/);
     var roll = Math.floor(Math.random() * args[1]) + 1;
     if(args.length === 1) {
-      message.channel.sendMessage('Not enough arguments defined. Usage: ``>roll [max number]``')
+      msg.say('No arguments defined. Usage: ``tyl!roll [max number] [opt: # of dice to roll]``')
     } else {
-      message.channel.sendMessage('You rolled ' + roll)
+      if(args.length === 2) {
+        msg.say(':game_die: You rolled ' + roll)
+      }
     }
   }
 };

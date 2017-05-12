@@ -6,20 +6,21 @@ class SetGameCommand extends commando.Command {
       name: 'setgame',
       group: 'moderation',
       memberName: 'setgame',
-      description: 'Owner only. Usage: ``>setgame [game]``',
+      description: 'Owner only. Usage: ``tyl!setgame [game]``',
     });
   }
 
-  async run(message, args) {
-    var args = message.content.split(/[ ]+/);
+  async run(msg, args) {
+    var args = msg.content.split(/[ ]+/);
     var argsfinal = args.text;
-    let ownerRole = message.guild.roles.find("name", "Tyrant");
-    if(message.member.roles.has(ownerRole.id)) {
+    if(msg.member.roles.has('305836490641113099')) {
       if(args.length === 1) {
-        message.channel.sendMessage('No argument was defined. Usage: ``>setgame [game]``')
+        msg.say('No argument was defined. Usage: ``tyl!setgame [game]``')
       } else {
-        message.client.user.setGame(args.join(" ").substring(8));
+        msg.client.user.setGame(args.join(" ").substring(11));
       }
+    } else {
+      msg.channel.send('*You do not have sufficient permission to use that command.*')
     }
   }
 };

@@ -6,12 +6,12 @@ class CMDExclusionsCommand extends commando.Command {
         name: 'cmdexclusions',
         group: 'reply',
         memberName: 'cmdexclusions',
-        description: 'Check the list of commands allowed in all channels. Usage: ``>cmdexclusions``',
+        description: 'Check the list of commands allowed in all channels. Usage: ``tyl!cmdexclusions``',
     });
   }
 
-  async run(message, msg) {
-    message.author.sendMessage('The commands allowed in any text channel (excluding logs) are >roast, -reminder, >arrest, >8ball, and >choose [note: spam rules apply in the other channels]');
+  run(msg) {
+    msg.author.send('The commands allowed in any text channel (excluding logs) are tyl!roast, -reminder, tyl!arrest, tyl!8ball, and tyl!choose [note: spam rules apply in the other channels]');
   }
 };
 
