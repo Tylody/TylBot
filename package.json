@@ -1,25 +1,35 @@
 {
   "name": "tylbot",
-  "version": "1.0.0",
-  "description": "bot",
+  "version": "1.0.2",
+  "description": "tylbot's bot",
   "main": "bot.js",
   "dependencies": {
-    "discord.js": "^11.1.0",
-    "discord.js-commando": "github:gawdl3y/discord.js-commando",
-    "uws": "^0.14.0"
+    "cheerio": "^1.0.0-rc.1",
+    "discord.js": "^11.3.0",
+    "discord.js-commando": "^0.9.0",
+    "request": "^2.81.0",
+    "uws": "^0.14.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": ">ping"
   },
+  "engines": {
+    "node": "7.7.4",
+    "npm": "4.1.2"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tylody/TylBot.git"
+    "url": "git+https://github.com/tylody/tylbot.git"
   },
-  "author": "tylody",
+  "keywords": [
+    "bot"
+  ],
+  "author": "Tylody",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tylody/TylBot/issues"
+    "url": "https://github.com/tylody/tylbot/issues"
   },
-  "homepage": "https://github.com/Tylody/TylBot#readme"
+  "homepage": "https://github.com/tylody/tylbot#readme"
 }

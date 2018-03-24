@@ -6,25 +6,21 @@ class PurgeCommand extends commando.Command {
       name: 'purge',
       group: 'moderation',
       memberName: 'purge',
-      description: 'Delete a certain amount of messages. Usage: ``tyl!purge [amount]',
+      description: 'Delete a certain amount of messages. Usage: ``>purge [amount]``',
     });
   }
 
-  async run(message, args) {
-    var args = message.content.split(/[ ]+/);
-    let modRole = message.guild.roles.find("name", "Moderator");
-    if(message.member.roles.has(modRole.id)) {
+  async run(msg, args) {
+    var args = msg.content.split(/[ ]+/);
+    if(msg.channel.permissionsFor(msg.author).has('MANAGE_MESSAGES')) {
       if(args.length >= 3) {
-        message.channel.send('Too many arguments defined. Usage: ``tyl!purge [amount]``')
+        msg.say('Too many arguments defined. Usage: ``>purge [amount]``')
       } else {
-        var msg;
-        if(args.length === 1) {
-          msg = 2;
-        } else {
-          msg=parseInt(args[1]) + 1;
-        }
-        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        let messagecount = parseInt(args[1]);
+          msg.channel.fetchMessages({limit: messagecount}).then(messages => msg.channel.bulkDelete(messages));
       }
+    } else {
+      msg.say('*You do not have sufficient permission to use this command.*')
     }
   }
 };
