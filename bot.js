@@ -29,6 +29,10 @@ client.on('message', message => { // when someone sends a message, run this
     message.channel.send('owo')
   } else if(cont.toLowerCase() === 'you tried') {
     message.channel.send('http://i.imgur.com/228L6ye.png')
+  } else if(cont.toLowerCase() === 'oh') {
+    message.channel.send('bama')
+  } else if(cont.toLowerCase() === 'bama') {
+    message.channel.send('oh')
   }
 });
 

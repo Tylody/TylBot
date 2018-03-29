@@ -1,4 +1,5 @@
 const commando = require('discord.js-commando');
+const Discord = require('discord.js');
 
 class LoveCalcCommand extends commando.Command {
   constructor(client) {
@@ -27,38 +28,27 @@ class LoveCalcCommand extends commando.Command {
           var $ = cheerio.load(body),
             result = $("[id='love-score']").html();
           var removetags = result.replace(/<[^>]*>/g, '');
-          var finalresult = removetags.replace("Your Love Score is ", "")
-          if(result >= 80) {
-            msg.channel.send({embed: {
-              color: 14364720, // #db3030
-              description: 'The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is: \n :black_large_square: :black_large_square: :black_large_square: :black_large_square:  :sparkling_heart: ' + finalresult + ':black_large_square: :black_large_square: :black_large_square: :black_large_square:',
-              title: 'Love Calculator'
-            }})
-          } else if(result >= 60) {
-            msg.channel.send({embed: {
-              color: 14364720,
-              description: 'The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is: \n :black_large_square: :black_large_square: :black_large_square: :black_large_square:  :heartbeat: ' + finalresult + ':heartbeat: :black_large_square: :black_large_square: :black_large_square: :black_large_square:',
-              title: 'Love Calculator'
-            }})
-          } else if(result >= 40) {
-            msg.channel.send({embed: {
-              color: 14364720,
-              description: 'The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is: \n :black_large_square: :black_large_square: :black_large_square: :black_large_square:  :heart: ' + finalresult + ':heart: :black_large_square: :black_large_square: :black_large_square: :black_large_square:',
-              title: 'Love Calculator'
-            }})
-          } else if(result >= 20) {
-            msg.channel.send({embed: {
-              color: 14364720,
-              description: 'The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is: \n :black_large_square: :black_large_square: :black_large_square: :black_large_square:  :gift_heart: ' + finalresult + ':gift_heart: :black_large_square: :black_large_square: :black_large_square: :black_large_square:',
-              title: 'Love Calculator'
-            }})
-          } else if(result >= 0) {
-            msg.channel.send({embed: {
-              color: 14364720,
-              description: 'The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is: \n :black_large_square: :black_large_square: :black_large_square: :black_large_square:  :broken_heart: ' + finalresult + ':broken_heart: :black_large_square: :black_large_square: :black_large_square: :black_large_square:',
-              title: 'Love Calculator'
-            }})
-          }
+          var finalresult = removetags.replace("Your Love Score is ", "");
+          var heartfinal = finalresult.replace("%","");
+          if(heartfinal >= 80) {
+            var heart = ':sparkling_heart:'
+          } else if(heartfinal >= 60 && heartfinal < 80) {
+            var heart = ':heartbeat:'
+          } else if(heartfinal >= 40 && heartfinal < 60) {
+            var heart = ':heart:'
+          } else if(heartfinal >= 20 && heartfinal < 40) {
+            var heart = ':gift_heart:'
+          } else if(heartfinal >= 0 && heartfinal < 20) {
+            var heart = ':broken_heart:'
+          };
+          const embed = new Discord.RichEmbed()
+            .setTitle('Love Calculator')
+            .setColor(14364720) // #db3030
+            .setDescription('The love score between ' + args[0].substring(10) + ' and ' + args[1] + ' is:')
+            .addField(':black_large_square: :black_large_square: :black_large_square: :black_large_square: ' + heart + finalresult + heart + ' :black_large_square: :black_large_square: :black_large_square: :black_large_square:', '~~---------------------------------------------------------~~')
+            .setFooter('http://lovecalculator.love/')
+            .setTimestamp()
+          return msg.embed(embed);
           console.log(url);
         } else {
           msg.say('Error: ' + error + '. Please contact Tylody#1781');

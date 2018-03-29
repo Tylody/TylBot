@@ -19,13 +19,13 @@ class RoastCommand extends commando.Command {
       let n = args[1]
       switch (random) {
         case 1:
-          msg.say(msg.author + ' says ' + n + ' is so stupid, he uses commands in #general');
+          msg.say(msg.author + ' says ' + n + ' plays Fortnite Mobile.');
           break;
         case 2:
-          msg.say(msg.author + ' says ' + n + ' is such a weaboo, I bet he buys anime girl body pillows on eBay.');
+          msg.say(msg.author + ' says ' + n + ' plays PUBG Mobile.');
           break;
         case 3:
-          msg.say(msg.author + ' says ' + n + ' is such a trap that they hide wild snakes in their dresses.');
+          msg.say(msg.author + ' says ' + n + ' sent "You just made me lose my erection" to his parents.');
           break;
         case 4:
           msg.say(msg.author + ' says ' + n + ' throws twigs at dead rats.');
@@ -34,7 +34,7 @@ class RoastCommand extends commando.Command {
           msg.say(msg.author + ' says ' + n + ' is an SJW that yells at children sitting in front of the 99¢ store.');
           break;
         case 6:
-          msg.say(msg.author + ' says ' + n + ' is a 3rd wave feminist that wants equality for women while being extremely hypocritical and achieving the opposite, only wanting equality in areas which women aren\'t treated special for being women.');
+          msg.say(msg.author + ' says ' + n + ' doesn\'t look both ways before crossing the street.');
           break;
         case 7:
           msg.say(msg.author + ' says ' + n + ' never knows when to back off.');
@@ -43,10 +43,10 @@ class RoastCommand extends commando.Command {
           msg.say(msg.author + ' says ' + n + ' watches TogetherTube at 3 in the morning.');
           break;
         case 9:
-          msg.say(msg.author + ' says ' + n + ' throws body bags into crowded areas.');
+          msg.say(msg.author + ' says ' + n + ' is boosted.');
           break;
         case 10:
-          msg.say(msg.author + ' says ' + n + ' doesn\'t cable tie civilians, and instead, opts to shoot them.');
+          msg.say(msg.author + ' says ' + n + ' did not give them the pasta that they promised them they\'ve been waiting for it and ' + n + ' better give it to them soon they swear they want it so bad right now they\'ve been craving pasta all night and that ' + n + ' should just at least give them pasta tomorrow they really want pasta please pasta.');
           break;
         case 11:
           msg.say(msg.author + ' says ' + n + ' is so stupid that they left their push pop in the locker room.');
