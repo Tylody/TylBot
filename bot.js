@@ -17,6 +17,7 @@ client.on('ready', () => { // when the bot goes online, run this
 });
 
 client.on('message', message => { // when someone sends a message, run this
+  var args = message.content.split(/[ ]+/);
   if(message.author.bot) return; // doesn't do anything when a bot sends the message
   let cont = message.content // i could just type out message.content every time but i'm lazy
   if(cont === '^') { // if the message is only ^
@@ -33,6 +34,10 @@ client.on('message', message => { // when someone sends a message, run this
     message.channel.send('bama')
   } else if(cont.toLowerCase() === 'bama') {
     message.channel.send('oh')
+  } else if(cont.toLowerCase().startsWith('i\'m')) {
+    message.channel.send('Hi ' + args.join(" ").substring(4) + ', I\'m dad!')
+  } else if(cont.toLowerCase().startsWith('im')) {
+    message.channel.send('Hi ' + args.join(" ").substring(3) + ', I\'m dad!')
   }
 });
 
@@ -47,23 +52,23 @@ client.on('message', message => {
     i++; // adds one to i
   }
 });
-/*
+
 client.on("guildMemberAdd", (member) => { // on the event of a new member, send this message
-  if(getChannel('general')) {
-    message.channel.send(member + ' has joined the server.');
-  } else {
-    member.guild.defaultChannel.send(member + ' has joined the server.');
-  }
+//  if(getChannel('general')) {
+//    message.channel.send(member + ' has joined the server.');
+//  } else {
+  member.guild.defaultChannel.send(member + ' has joined the server.');
+//  }
 });
 
 client.on("guildMemberRemove", (member) => { // on the event of a leaving member, send this message
-  if(getChannel(general)) {
-    message.channel.send(member + ' has left the server.');
-  } else {
-    member.guild.defaultChannel.send(member + ' has left the server.');
-  }
+//  if(getChannel(general)) {
+//    message.channel.send(member + ' has left the server.');
+//  } else {
+  member.guild.defaultChannel.send(member + ' has left the server.');
+//  }
 });
-*/
+
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
