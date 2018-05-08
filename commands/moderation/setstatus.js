@@ -15,7 +15,7 @@ class SetStatusCommand extends commando.Command {
       return console.log('error')
     }
     var args = msg.content.split(/[ ]+/);
-    if(msg.member.roles.has('305836490641113099')) {
+    if(msg.author.id === '248285489902256128') {
       if(args.length === 1) {
         msg.say('No argument was defined. Usage: ``>setstatus [online|away]``')
       } else if(args[1] === 'online') {

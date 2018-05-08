@@ -28,6 +28,8 @@ client.on('message', message => { // when someone sends a message, run this
     message.channel.send('(づ✿ロ✿)づ')
   } else if(cont.toLowerCase().includes('whats this') || cont.toLowerCase().includes('what\'s this') || cont.toLowerCase().includes('what is this')) { // putting || means or
     message.channel.send('owo')
+  } else if(cont.toLowerCase().includes('owo') {
+    message.channel.send('what\'s this')
   } else if(cont.toLowerCase() === 'you tried') {
     message.channel.send('http://i.imgur.com/228L6ye.png')
   } else if(cont.toLowerCase() === 'oh') {
@@ -38,6 +40,8 @@ client.on('message', message => { // when someone sends a message, run this
     message.channel.send('Hi ' + args.join(" ").substring(4) + ', I\'m dad!')
   } else if(cont.toLowerCase().startsWith('im')) {
     message.channel.send('Hi ' + args.join(" ").substring(3) + ', I\'m dad!')
+  } else if(cont.toLowerCase().startsWith('you\'re ') || cont.toLowerCase().startsWith('youre ') || cont.toLowerCase().startsWith('you are ')) {
+    message.channel.send('no u')
   }
 });
 
