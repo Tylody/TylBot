@@ -13,7 +13,7 @@ client.registry.registerDefaults();
 client.registry.registerCommandsIn(__dirname + "/commands");
 
 client.on('ready', () => {
-    console.log('TylBot EXPERIMENTAL is ONLINE')
+    console.log(config.openMsg)
 });
 
 client.on('message', message => {
