@@ -32,27 +32,30 @@ class WeatherCommand extends commando.Command {
       console.log(location)
       request('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&APPID=160abc062ce4814fbcc573c55212bb77', function (error, response, body) {
         if (!error) {
-          console.log(info)
           var info = JSON.parse(body)
-          let mrfahrenheit = Math.round((info.main.temp * 1.8) - 459.67)
-          let mrcelsius = Math.round(info.main.temp - 273.15)
-          let mrhumidity = info.main.humidity
-          let mrfmax = Math.round((info.main.temp_max * 1.8) - 459.67)
-          let mrcmax = Math.round(info.main.temp_max - 273.15)
-          let mrsfmin = Math.round((info.main.temp_min * 1.8) - 459.67)
-          let mrscmin = Math.round(info.main.temp_min - 273.15)
-          const embed = new Discord.RichEmbed()
-            .setTitle('Weather')
-            .setAuthor(msg.client.user.username, msg.client.user.avatarURL)
-            .setColor(3384319)
-            .setDescription('The weather for: ' + args.join(" ").substring(9))
-            .addField('Temperature', 'The current temperature is ' + mrfahrenheit + '°F, or ' + mrcelsius + '°C')
-            .addField('High', 'The projected high for today is ' + mrfmax + '°F, or ' + mrcmax + '°C')
-            .addField('Low', 'The projected low for today is ' + mrsfmin + '°F, or'  + mrscmin + '°C')
-            .addField('Humidity', 'The current humidity is ' + mrhumidity + '%')
-            .setFooter('https://openweathermap.org/')
-            .setTimestamp()
-          return msg.embed(embed)
+          if(info.main !== undefined) {
+            let mrfahrenheit = Math.round((info.main.temp * 1.8) - 459.67)
+            let mrcelsius = Math.round(info.main.temp - 273.15)
+            let mrhumidity = info.main.humidity
+            let mrfmax = Math.round((info.main.temp_max * 1.8) - 459.67)
+            let mrcmax = Math.round(info.main.temp_max - 273.15)
+            let mrsfmin = Math.round((info.main.temp_min * 1.8) - 459.67)
+            let mrscmin = Math.round(info.main.temp_min - 273.15)
+            const embed = new Discord.RichEmbed()
+              .setTitle('Weather')
+              .setAuthor(msg.client.user.username, msg.client.user.avatarURL)
+              .setColor(3384319)
+              .setDescription('The weather for: ' + args.join(" ").substring(9))
+              .addField('Temperature', 'The current temperature is ' + mrfahrenheit + '°F, or ' + mrcelsius + '°C')
+              .addField('High', 'The projected high for today is ' + mrfmax + '°F, or ' + mrcmax + '°C')
+              .addField('Low', 'The projected low for today is ' + mrsfmin + '°F, or'  + mrscmin + '°C')
+              .addField('Humidity', 'The current humidity is ' + mrhumidity + '%')
+              .setFooter('https://openweathermap.org/')
+              .setTimestamp()
+            return msg.embed(embed)
+          } else {
+            msg.say('An error has occured. Check your command request for any typos.')
+          }
         }
       });
     }
